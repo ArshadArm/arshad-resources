@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top YouTube resources · Advanced web applications</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial,
+          sans-serif;
+      }
+      body {
+        background: #f9fafc;
+        padding: 2rem 1rem;
+        display: flex;
+        justify-content: center;
+      }
+      .container {
+        max-width: 1300px;
+        width: 100%;
+      }
+      h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #0b1b2b;
+        margin-bottom: 0.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      h1 span {
+        background: #ff3b3b;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.2rem 0.8rem;
+        border-radius: 30px;
+        letter-spacing: normal;
+      }
+      .subhead {
+        font-size: 1.1rem;
+        color: #4b5b6b;
+        margin-bottom: 2rem;
+        border-left: 4px solid #ff3b3b;
+        padding-left: 1rem;
+        background: #fff;
+        border-radius: 0 12px 12px 0;
+        line-height: 1.5;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        padding: 0.9rem 1.2rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+      .card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 1.5rem 1.3rem 1.3rem 1.3rem;
+        box-shadow:
+          0 8px 20px -6px rgba(0, 20, 40, 0.08),
+          0 0 0 1px rgba(0, 0, 0, 0.02);
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.2s;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #eef2f6;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 18px 30px -10px rgba(0, 20, 40, 0.15),
+          0 0 0 1px rgba(0, 0, 0, 0.02);
+      }
+      .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+      }
+      .channel-name {
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: #0d1e2e;
+      }
+      .badge {
+        background: #eef6ff;
+        color: #0066cc;
+        font-size: 0.7rem;
+        font-weight: 600;
+        padding: 0.25rem 0.65rem;
+        border-radius: 50px;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+      .badge.advanced {
+        background: #fff0e5;
+        color: #b45309;
+      }
+      .badge.full {
+        background: #e6f7ed;
+        color: #0f6e3f;
+      }
+      .badge.frontend {
+        background: #eae6ff;
+        color: #4f46e5;
+      }
+      .badge.backend {
+        background: #ffe6f0;
+        color: #b91c5c;
+      }
+      .desc {
+        font-size: 0.92rem;
+        color: #2c3e4f;
+        line-height: 1.5;
+        margin-bottom: 1.1rem;
+        flex: 1;
+      }
+      .link-wrapper {
+        margin-top: auto;
+        border-top: 1px solid #e9edf2;
+        padding-top: 1rem;
+      }
+      .yt-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        background: #ffffff;
+        color: #0b1b2b;
+        font-weight: 600;
+        font-size: 0.88rem;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 40px;
+        border: 1.5px solid #d0d9e2;
+        transition: all 0.15s;
+        width: fit-content;
+      }
+      .yt-link:hover {
+        background: #ff3b3b;
+        border-color: #ff3b3b;
+        color: white;
+      }
+      .yt-link svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+        transition: fill 0.15s;
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 650;
+        color: #0b1b2b;
+        margin: 2.2rem 0 1.2rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem;
+      }
+      .section-title:first-of-type {
+        margin-top: 0.2rem;
+      }
+      .note {
+        background: #f0f4fa;
+        border-radius: 16px;
+        padding: 1rem 1.5rem;
+        margin: 2rem 0 1rem;
+        font-size: 0.9rem;
+        color: #1d3a5c;
+        border-left: 6px solid #ff3b3b;
+      }
+      .note strong {
+        font-weight: 700;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 2.8rem;
+        font-size: 0.8rem;
+        color: #6b7c8e;
+        border-top: 1px solid #dfe6ed;
+        padding-top: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        ⚡ Top YouTube Resources
+        <span>Advanced WEB</span>
+      </h1>
+      <div class="subhead">
+        Curated single-reference links — full-stack, frontend, backend, and
+        advanced application development.
+      </div>
+
+      <!-- Full-Stack & Advanced Application Development -->
+      <div class="section-title">
+        🚀 Full-Stack & Advanced Application Development
+      </div>
+      <div class="grid">
+        <!-- freeCodeCamp -->
+        <div class="card">
+          <div class="card-header">
+            <div class="channel-name">freeCodeCamp</div>
+            <div class="badge full">full-stack</div>
+          </div>
+          <div class="desc">
+            Complete full-stack development courses, professional certification
+            prep, and deep dives into web architecture. Best for structured,
+            start-to-finish learning of modern application stacks.
+          </div>
+          <div class="link-wrapper">
+            <a
+              href="https://www.youtube.com/@freecodecamp"
+              class="yt-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21.582 6.797a2.995 2.995 0 0 0-2.108-2.12C17.615 4.153 12 4.153 12 4.153s-5.615 0-7.474.524A2.995 2.995 0 0 0 2.418 6.797C1.886 8.665 1.886 12 1.886 12s0 3.335.532 5.203a2.995 2.995 0 0 0 2.108 2.12c1.859.524 7.474.524 7.474.524s5.615 0 7.474-.524a2.995 2.995 0 0 0 2.108-2.12c.532-1.868.532-5.203.532-5.203s0-3.335-.532-5.203zM9.996 15.45V8.55L15.878 12l-5.882 3.45z"
+                />
+              </svg>
+              youtube.com/@freecodecamp
+            </a>
+          </div>
+        </div>
+
+        <!-- Traversy Media -->
+        <div class="card">
+          <div class="card-header">
+            <div class="channel-name">Traversy Media</div>
+            <div class="badge full">full-stack</div>
+          </div>
+          <div class="desc">
+            Modern web development crash courses, full-stack application builds,
+            and industry best practices. Known for practical project tutorials
+            covering React, Node.js, and modern JS.
+          </div>
+          <div class="link-wrapper">
+            <a
+              href="https://www.youtube.com/@TraversyMedia"
+              class="yt-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21.582 6.797a2.995 2.995 0 0 0-2.108-2.12C17.615 4.153 12 4.153 12 4.153s-5.615 0-7.474.524A2.995 2.995 0 0 0 2.418 6.797C1.886 8.665 1.886 12 1.886 12s0 3.335.532 5.203a2.995 2.995 0 0 0 2.108 2.12c1.859.524 7.474.524 7.474.524s5.615 0 7.474-.524a2.995 2.995 0 0 0 2.108-2.12c.532-1.868.532-5.203.532-5.203s0-3.335-.532-5.203zM9.996 15.45V8.55L15.878 12l-5.882 3.45z"
+                />
+              </svg>
+              youtube.com/@TraversyMedia
+            </a>
+          </div>
+        </div>
+
+        <!-- The Net Ninja -->
+        <div class="card">
+          <div class="card-header">
+            <div class="channel-name">The Net Ninja</div>
+            <div class="badge full">full-stack</div>
+          </div>
+          <div class="desc">
+            Structured playlists on modern JavaScript, frontend frameworks, and
+            full-stack development. Popular series include React & Firebase and
+            Node.js crash courses — ideal for progressive learning.
+          </div>
+          <div class="link-wrapper">
+            <a
+              href="https://www.youtube.com/@NetNinja"
+              class="yt-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21.582 6.797a2.995 2.995 0 0 0-2.108-2.12C17.615 4.153 12 4.153 12 4.153s-5.615 0-7.474.524A2.995 2.995 0 0 0 2.418 6.797C1.886 8.665 1.886 12 1.886 12s0 3.335.532 5.203a2.995 2.995 0 0 0 2.108 2.12c1.859.524 7.474.524 7.474.524s5.615 0 7.474-.524a2.995 2.995 0 0 0 2.108-2.12c.532-1.868.532-5.203.532-5.203s0-3.335-.532-5.203zM9.996 15.45V8.55L15.878 12l-5.882 3.45z"
+                />
+              </svg>
+              youtube.com/@NetNinja
+            </a>
+          </div>
+        </div>
+
+        <!-- Web Dev Simplified -->
+        <div class="card">
+          <div class="card-header">
+            <div class="channel-name">Web Dev Simplified</div>
+            <div class="badge full">full-stack</div>
+          </div>
+          <div class="desc">
+            Clear, concise tutorials on frontend concepts, JavaScript deep
+            dives, CSS, and React. Known for practical component patterns and
+            performance optimization techniques for advanced applications.
+          </div>
+          <div class="link-wrapper">
+            <a
+              href="https://www.youtube.com/@WebDevSimplified"
+              class="yt-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21.582 6.797a2.995 2.995 0 0 0-2.108-2.12C17.615 4.153 12 4.153 12 4.153s-5.615 0-7.474.524A2.995 2.995 0 0 0 2.418 6.797C1.886 8.665 1.886 12 1.886 12s0 3.335.532 5.203a2.995 2.995 0 0 0 2.108 2.12c1.859.524 7.474.524 7.474.524s5.615 0 7.474-.524a2.995 2.995 0 0 0 2.108-2.12c.532-1.868.532-5.203.532-5.203s0-3.335-.532-5.203zM9.996 15.45V8.55L15.878 12l-5.882 3.45z"
+                />
+              </svg>
+              youtube.com/@WebDevSimplified
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frontend & Advanced Frameworks -->
+      <div class="section-title">🎨 Frontend & Advanced Frameworks</div>
+      <div class="grid">
+        <!-- JavaScript Mastery -->
+        <div class="card">
+          <div class="card-header">
+            <div class="channel-name">JavaScript Mastery</div>
+            <div class="badge frontend">frontend</div>
+          </div>
+          <div class="desc">
+            Build real application clones with Next.js, React, and modern
+            tooling. Project-based learning focused on production-grade frontend
+            architecture and advanced patterns.
+          </div>
+          <div class="link-wrapper">
+            <a
+              href="https://www.youtube.com/@javascriptmastery"
+              class="yt-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21.582 6.797a2.995 2.995 0 0 0-2.108-2.12C17.615 4.153 12 4.153 12 4.153s-5.615 0-7.474.524A2.995 2.995 0 0 0 2.418 6.797C1.886 8.665 1.886 12 1.886 12s0 3.335.532 5.203a2.995 2.995 0 0 0 2.108 2.12c1.859.524 7.474.524 7.474.524s5.615 0 7.474-.524a2.995 2.995 0 0 0 2.108-2.12c.532-1.868.532-5.203.532-5.203s0-3.335-.532-5.203zM9.996 15.45V8.55L15.878 12l-5.882 3.45z"
+                />
+              </svg>
+              youtube.com/@javascriptmastery
+            </a>
+          </div>
+        </div>
+
+        <!-- Academind -->
+        <div class="card">
+          <div class="card-header">
+            <div class="channel-name">Academind</div>
+            <div class="badge frontend">frontend</div>
+          </div>
+          <div class="desc">
+            Deep dives into React, Redux, Webpack, and modern frontend
+            architecture. Known for explaining complex concepts like state
+            management and build tooling with exceptional clarity.
+          </div>
+          <div class="link-wrapper">
+            <a
+              href="https://www.youtube.com/@academind"
+              class="yt-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21.582 6.797a2.995 2.995 0 0 0-2.108-2.12C17.615 4.153 12 4.153 12 4.153s-5.615 0-7.474.524A2.995 2.995 0 0 0 2.418 6.797C1.886 8.665 1.886 12 1.886 12s0 3.335.532 5.203a2.995 2.995 0 0 0 2.108 2.12c1.859.524 7.474.524 7.474.524s5.615 0 7.474-.524a2.995 2.995 0 0 0 2.108-2.12c.532-1.868.532-5.203.532-5.203s0-3.335-.532-5.203zM9.996 15.45V8.55L15.878 12l-5.882 3.45z"
+                />
+              </svg>
+              youtube.com/@academind
+            </a>
+          </div>
+        </div>
+
+        <!-- Kevin Powell (CSS advanced) -->
+        <div class="card">
+          <div class="card-header">
+            <div class="channel-name">Kevin Powell</div>
+            <div class="badge advanced">advanced CSS</div>
+          </div>
+          <div class="desc">
+            The definitive resource for CSS mastery. Covers Flexbox, Grid,
+            container queries, and cutting-edge 2026 features like anchor
+            positioning and scroll-driven animations with unmatched depth.
+          </div>
+          <div class="link-wrapper">
+            <a
+              href="https://www.youtube.com/@KevinPowell"
+              class="yt-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21.582 6.797a2.995 2.995 0 0 0-2.108-2.12C17.615 4.153 12 4.153 12 4.153s-5.615 0-7.474.524A2.995 2.995 0 0 0 2.418 6.797C1.886 8.665 1.886 12 1.886 12s0 3.335.532 5.203a2.995 2.995 0 0 0 2.108 2.12c1.859.524 7.474.524 7.474.524s5.615 0 7.474-.524a2.995 2.995 0 0 0 2.108-2.12c.532-1.868.532-5.203.532-5.203s0-3.335-.532-5.203zM9.996 15.45V8.55L15.878 12l-5.882 3.45z"
+                />
+              </svg>
+              youtube.com/@KevinPowell
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend & Database (Advanced) -->
+      <div class="section-title">⚙️ Backend, API & Database (Advanced)</div>
+      <div class="grid">
+        <!-- CMU Database Group -->
+        <div class="card">
+          <div class="card-header">
+            <div class="channel-name">CMU Database Group</div>
+            <div class="badge backend">database internals</div>
+          </div>
+          <div class="desc">
+            Full filmed semester course "Intro to Database Systems" (15-445/645)
+            by Andy Pavlo. Rigorous, university-level coverage of how databases
+            work under the hood — indexes, query optimization, and internals.
+          </div>
+          <div class="link-wrapper">
+            <a
+              href="https://www.youtube.com/@CMUDatabaseGroup"
+              class="yt-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21.582 6.797a2.995 2.995 0 0 0-2.108-2.12C17.615 4.153 12 4.153 12 4.153s-5.615 0-7.474.524A2.995 2.995 0 0 0 2.418 6.797C1.886 8.665 1.886 12 1.886 12s0 3.335.532 5.203a2.995 2.995 0 0 0 2.108 2.12c1.859.524 7.474.524 7.474.524s5.615 0 7.474-.524a2.995 2.995 0 0 0 2.108-2.12c.532-1.868.532-5.203.532-5.203s0-3.335-.532-5.203zM9.996 15.45V8.55L15.878 12l-5.882 3.45z"
+                />
+              </svg>
+              youtube.com/@CMUDatabaseGroup
+            </a>
+          </div>
+        </div>
+
+        <!-- Ben Awad (GraphQL / advanced) -->
+        <div class="card">
+          <div class="card-header">
+            <div class="channel-name">Ben Awad</div>
+            <div class="badge backend">GraphQL / advanced</div>
+          </div>
+          <div class="desc">
+            Advanced GraphQL and Prisma tutorials, full-stack TypeScript
+            patterns, and deep dives into tooling. Known for practical,
+            production-oriented backend architecture discussions.
+          </div>
+          <div class="link-wrapper">
+            <a
+              href="https://www.youtube.com/@benawad"
+              class="yt-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21.582 6.797a2.995 2.995 0 0 0-2.108-2.12C17.615 4.153 12 4.153 12 4.153s-5.615 0-7.474.524A2.995 2.995 0 0 0 2.418 6.797C1.886 8.665 1.886 12 1.886 12s0 3.335.532 5.203a2.995 2.995 0 0 0 2.108 2.12c1.859.524 7.474.524 7.474.524s5.615 0 7.474-.524a2.995 2.995 0 0 0 2.108-2.12c.532-1.868.532-5.203.532-5.203s0-3.335-.532-5.203zM9.996 15.45V8.55L15.878 12l-5.882 3.45z"
+                />
+              </svg>
+              youtube.com/@benawad
+            </a>
+          </div>
+        </div>
+
+        <!-- Fireship (modern backend / cloud) -->
+        <div class="card">
+          <div class="card-header">
+            <div class="channel-name">Fireship</div>
+            <div class="badge backend">modern stack</div>
+          </div>
+          <div class="desc">
+            High-density tutorials on modern web development, cloud
+            technologies, and backend services. Perfect for quickly grasping new
+            frameworks, Firebase, and architectural trade-offs in minutes.
+          </div>
+          <div class="link-wrapper">
+            <a
+              href="https://www.youtube.com/@Fireship"
+              class="yt-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21.582 6.797a2.995 2.995 0 0 0-2.108-2.12C17.615 4.153 12 4.153 12 4.153s-5.615 0-7.474.524A2.995 2.995 0 0 0 2.418 6.797C1.886 8.665 1.886 12 1.886 12s0 3.335.532 5.203a2.995 2.995 0 0 0 2.108 2.12c1.859.524 7.474.524 7.474.524s5.615 0 7.474-.524a2.995 2.995 0 0 0 2.108-2.12c.532-1.868.532-5.203.532-5.203s0-3.335-.532-5.203zM9.996 15.45V8.55L15.878 12l-5.882 3.45z"
+                />
+              </svg>
+              youtube.com/@Fireship
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Application & Architecture (extra) -->
+      <div class="section-title">🧠 Advanced Architecture & Engineering</div>
+      <div class="grid">
+        <!-- Theo (t3.gg) -->
+        <div class="card">
+          <div class="card-header">
+            <div class="channel-name">Theo</div>
+            <div class="badge advanced">engineering</div>
+          </div>
+          <div class="desc">
+            Forward-looking discussions on web architecture, Turborepo,
+            monorepos, and modern tooling. Interviews with industry engineers
+            and deep dives into performance and developer experience.
+          </div>
+          <div class="link-wrapper">
+            <a
+              href="https://www.youtube.com/@t3dotgg"
+              class="yt-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21.582 6.797a2.995 2.995 0 0 0-2.108-2.12C17.615 4.153 12 4.153 12 4.153s-5.615 0-7.474.524A2.995 2.995 0 0 0 2.418 6.797C1.886 8.665 1.886 12 1.886 12s0 3.335.532 5.203a2.995 2.995 0 0 0 2.108 2.12c1.859.524 7.474.524 7.474.524s5.615 0 7.474-.524a2.995 2.995 0 0 0 2.108-2.12c.532-1.868.532-5.203.532-5.203s0-3.335-.532-5.203zM9.996 15.45V8.55L15.878 12l-5.882 3.45z"
+                />
+              </svg>
+              youtube.com/@t3dotgg
+            </a>
+          </div>
+        </div>
+
+        <!-- Akshay Saini (Namaste React) -->
+        <div class="card">
+          <div class="card-header">
+            <div class="channel-name">Akshay Saini</div>
+            <div class="badge advanced">react internals</div>
+          </div>
+          <div class="desc">
+            "Namaste React" series breaks down React's internal working and
+            architecture. Explains the *why* behind React's design, not just the
+            how — essential for advanced React mastery.
+          </div>
+          <div class="link-wrapper">
+            <a
+              href="https://www.youtube.com/@akshaymarch7"
+              class="yt-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21.582 6.797a2.995 2.995 0 0 0-2.108-2.12C17.615 4.153 12 4.153 12 4.153s-5.615 0-7.474.524A2.995 2.995 0 0 0 2.418 6.797C1.886 8.665 1.886 12 1.886 12s0 3.335.532 5.203a2.995 2.995 0 0 0 2.108 2.12c1.859.524 7.474.524 7.474.524s5.615 0 7.474-.524a2.995 2.995 0 0 0 2.108-2.12c.532-1.868.532-5.203.532-5.203s0-3.335-.532-5.203zM9.996 15.45V8.55L15.878 12l-5.882 3.45z"
+                />
+              </svg>
+              youtube.com/@akshaymarch7
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <strong>📌 Single-reference note:</strong> Each card links directly to
+        the channel's main page. For curated playlists (e.g., freeCodeCamp full
+        courses, Net Ninja React series), use the channel's playlists tab after
+        opening. These channels are consistently recommended for advanced web
+        application development across community resources and learning
+        roadmaps.
+      </div>
+
+      <div class="footer">
+        ⚡ HTML reference interface · Top YouTube resources for advanced web
+        applications
+      </div>
+    </div>
+  </body>
+</html>
